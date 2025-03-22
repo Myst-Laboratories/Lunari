@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Lunari Home</title>
+</head>
+<body>
+    <div>
+        <h1>Welcome to Lunari Home</h1>
+        <div>
+            <h2 th:text="${user.uName}"></h2>
+        </div>
+        <div>
+            <span style="color: red;"><a th:href="@{/logout}">Logout</a></span>
+        </div>
+    </div>
+</body>
+</html>
