@@ -1,0 +1,146 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #c7c7c7;
+}
+
+.container {
+    display: flex;
+    background-color: white;
+    border-radius: 12px;
+    overflow: hidden;
+    max-width: 900px;
+    width: 100%;
+    box-shadow: 0 0 20px rgba(0,0,0,0.1);
+}
+
+.login-left, .login-right {
+    flex: 1;
+    padding: 40px;
+}
+
+.login-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.logo {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 10px;
+}
+
+h1 {
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+p.description {
+    margin-bottom: 30px;
+    color: #555;
+}
+
+label {
+    margin-top: 15px;
+    display: block;
+    font-weight: bold;
+    color: #333;
+}
+
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 12px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+
+.error-message {
+    color: red;
+    font-size: 0.9rem;
+    margin-top: 5px;
+}
+
+.actions {
+    margin-top: 20px;
+}
+
+.actions input[type="checkbox"] {
+    margin-right: 5px;
+}
+
+.actions a {
+    float: right;
+    font-size: 0.9rem;
+    text-decoration: none;
+    color: #007bff;
+}
+
+.login-btn {
+    width: 100%;
+    padding: 12px;
+    background-color: #145c3c;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    margin-top: 20px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.login-btn:hover {
+    background-color: #0f4d32;
+}
+
+.register-link {
+    margin-top: 15px;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+.register-link a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.login-right {
+    background-color: #145c3c;
+    color: white;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.login-right h2 {
+    font-size: 32px;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.login-right img {
+    justify-content: center;
+    align-items: center;
+    max-width: 100%;
+    border-radius: 25px;
+    height: auto;
+}
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+    .login-right {
+        padding: 20px;
+    }
+}

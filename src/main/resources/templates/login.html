@@ -1,31 +1,54 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
-    <meta charset="UTF-8">
-    <title>Lunari Login</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lunari Login</title>
+  <link rel="stylesheet" th:href="@{/css/login.css}">
 </head>
 <body>
-  <div th:if="${param.error}">
-    <p>Invalid Username or Password</p>
-  </div>
 
-  <div th:if="${param.logout}">
-    <p>Logout Successful!</p>
-  </div>
+<div class="container">
+  <section class="login-left">
+    <img th:src="@{/assets/logo.png}" alt="Logo" class="logo" />
+    <h1>Get Started</h1>
+    <p class="description">Welcome to Lunari - Please log in</p>
 
-  <h2>Login</h2>
-  <form th:action="@{/login}" th:object="${user}" method="post">
-    <label for="uName">Username</label>
-    <input th:field="*{uName}" type="text" id="uName" name="uName" />
+    <div th:if="${param.error}" class="error-message">
+      Invalid Username or Password
+    </div>
 
-    <label for="uPassword">Password</label>
-    <input th:field="*{uPassword}" type="password" id="uPassword" name="uPassword" />
+    <div th:if="${param.logout}" class="success-message">
+      Logout Successful!
+    </div>
 
-    <button type="submit">Login</button>
-  </form>
+    <form th:action="@{/login}" th:object="${user}" method="post">
+      <label for="uName">Username</label>
+      <input th:field="*{uName}" type="text" id="uName" name="uName" placeholder="Enter your username" required />
+      <div class="error-message" th:if="${loginError}">Username must be valid</div>
 
+      <label for="uPassword">Password</label>
+      <input th:field="*{uPassword}" type="password" id="uPassword" name="uPassword" placeholder="Enter your password" required />
+      <div class="error-message" th:if="${BadCredentials}">Username or Password is wrong</div>
 
-  <p>Don't have an account? <a th:href="@{/register}">Register</a>here.</p>
+      <div class="actions">
+        <label><input type="checkbox" name="remember"> Remember me</label>
+        <a th:href="@{/forgot-password}">Forgot password?</a>
+      </div>
+
+      <button type="submit" class="login-btn">Login</button>
+    </form>
+
+    <div class="register-link">
+      Already have an account? <a th:href="@{/register}">Register</a>
+    </div>
+  </section>
+
+  <section class="login-right">
+    <h2>Track. <br>&nbsp; Learn. <br>&nbsp;&nbsp; Grow.</h2>
+    <img th:src="@{/assets/login_img.png}" alt="Illustration" />
+  </section>
+</div>
 
 </body>
 </html>

@@ -34,6 +34,12 @@ public class UserController {
         return "login";
     }
 
+    @GetMapping("/logout")
+    public String logout(Model model) {
+        model.addAttribute("user", new UserDto());
+        return "redirect:/login";
+    }
+
     @PostMapping("/login")
     public String loginPost(@Valid @ModelAttribute("user") UserDto user, BindingResult result, Model model) {
         if (result.hasErrors()) {
@@ -42,12 +48,12 @@ public class UserController {
         }
         var validUser = this.userService.authenticate(user.getUName(), user.getUPassword());
         if (!validUser) {
-            model.addAttribute("loginError", true);
+            model.addAttribute("BadCredentials", true);
             return "login";
         }
         var foundUser = this.userService.getUserByUName(user.getUName());
         model.addAttribute("user", foundUser);
-        return "/home";
+        return "home";
     }
 
     @GetMapping("/home")
