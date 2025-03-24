@@ -1,0 +1,134 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', sans-serif;
+}
+body {
+    display: flex;
+    background-color: #e5e7eb;
+    height: 100vh;
+}
+.sidebar {
+    width: 260px;
+    background-color: #1f2937;
+    color: #fff;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+.sidebar h1 {
+    display: flex;
+    align-items: center;
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+.sidebar img {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+}
+.sidebar input[type="text"] {
+    padding: 10px;
+    width: 100%;
+    margin: 15px 0;
+    border-radius: 6px;
+    border: none;
+}
+.menu {
+    list-style: none;
+    padding: 0;
+}
+.menu li {
+    padding: 12px 0;
+    cursor: pointer;
+    color: #d1d5db;
+}
+.menu li:hover {
+    color: #fff;
+}
+.main {
+    flex: 1;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: auto auto auto;
+    gap: 20px;
+}
+
+.card {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+}
+
+.card h3 {
+    font-size: 0.95rem;
+    color: #6b7280;
+}
+.card h2 {
+    font-size: 1.5rem;
+    margin-top: 5px;
+}
+.full-width {
+    grid-column: span 4;
+}
+.half-width {
+    grid-column: span 2;
+}
+.bar-chart {
+    display: flex;
+    align-items: flex-end;
+    height: 150px;
+    background: linear-gradient(to right, #a7f3d0, #6ee7b7);
+    border-radius: 10px;
+    padding: 10px;
+    gap: 10px;
+    margin-top: 15px;
+}
+.bar {
+    width: 20px;
+    background-color: #059669;
+    border-radius: 4px;
+}
+.bar.blue { background-color: #3b82f6; }
+.bar.yellow { background-color: #facc15; }
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+table th, table td {
+    text-align: left;
+    padding: 10px;
+    border-bottom: 1px solid #e5e7eb;
+}
+table th {
+    color: #374151;
+    font-size: 0.9rem;
+}
+table td {
+    font-size: 0.9rem;
+}
+.transaction-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+.transaction-header h3, .transaction-header span {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #374151;
+}
+
+.card:nth-child(1),
+.card:nth-child(2),
+.card:nth-child(3) {
+    margin-right: 20px;
+}
+
+.card:nth-child(3) {
+    margin-right: 0;
+}

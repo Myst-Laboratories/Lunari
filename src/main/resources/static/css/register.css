@@ -1,0 +1,139 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #c7c7c7;
+}
+
+.container {
+    display: flex;
+    background-color: white;
+    border-radius: 12px;
+    overflow: hidden;
+    max-width: 900px;
+    width: 100%;
+    box-shadow: 0 0 20px rgba(0,0,0,0.1);
+}
+
+.form-left, .form-right {
+    flex: 1;
+    padding: 40px;
+}
+
+.form-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.logo {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 10px;
+}
+
+h1 {
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+p.description {
+    margin-bottom: 30px;
+    color: #555;
+}
+
+label {
+    margin-top: 15px;
+    display: block;
+    font-weight: bold;
+    color: #333;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 12px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+
+.success-message {
+    color: green;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.error-message {
+    color: red;
+    margin-top: 5px;
+    font-size: 0.9rem;
+}
+
+.register-btn {
+    width: 100%;
+    padding: 12px;
+    background-color: #145c3c;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    margin-top: 25px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.register-btn:hover {
+    background-color: #0f4d32;
+}
+
+.login-link {
+    margin-top: 15px;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+.login-link a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.form-right {
+    background-color: #145c3c;
+    color: white;
+    display: flex;
+    flex-direction: column;
+
+
+}
+
+.form-right h2 {
+    font-size: 32px;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.form-right img {
+    justify-content: center;
+    align-items: center;
+    border-radius: 25px;
+    max-width: 100%;
+    height: auto;
+}
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+    .form-right {
+        padding: 20px;
+    }
+}

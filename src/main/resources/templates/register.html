@@ -1,33 +1,50 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
-    <meta charset="UTF-8">
-    <title>Lunari Register</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lunari Register</title>
+  <link rel="stylesheet" th:href="@{/css/register.css}">
 </head>
 <body>
-  <div th:if="${param.success}">
-    <p>Registration Successful!</p>
-  </div>
 
-  <h2>Registration</h2>
-  <form th:action="@{/register}" method="post">
-    <label for="username">Username:</label>
-    <input type="text" id="username" name="uName" placeholder="Please enter a username">
+<div class="container">
+  <section class="form-left">
+    <img th:src="@{/assets/logo.png}" alt="Logo" class="logo" />
+    <h1>Create Account</h1>
+    <p class="description">Join Lunari - Start tracking, learning, and growing</p>
 
-    <label for="email">Email:</label>
-    <input type="text" id="email" name="uEmail" placeholder="Please enter a email">
+    <div th:if="${param.success}" class="success-message">
+      Registration Successful!
+    </div>
 
-    <label for="password">Password:</label>
-    <input type="text" id="password" name="uPassword" placeholder="Please enter a password">
+    <form th:action="@{/register}" method="post">
+      <label for="username">Username</label>
+      <input type="text" id="username" name="uName" placeholder="Enter your username" required />
 
-    <button type="submit">Register</button>
-  </form>
+      <label for="email">Email</label>
+      <input type="email" id="email" name="uEmail" placeholder="Enter your email" required />
 
-  <div>
-    <span th:if="${UserExist}" style="color: red">Username is Taken</span>
-  </div>
-<div>
-  <span>Already have an account? <a th:href="@{/login}">Login</a></span>
+      <label for="password">Password</label>
+      <input type="password" id="password" name="uPassword" placeholder="Enter your password" required />
+
+      <div class="error-message" th:if="${UserExist}">
+        Username is taken
+      </div>
+
+      <button type="submit" class="register-btn">Register</button>
+    </form>
+
+    <div class="login-link">
+      Already have an account? <a th:href="@{/login}">Login</a>
+    </div>
+  </section>
+
+  <section class="form-right">
+    <h2>Track. <br>&nbsp; Learn. <br>&nbsp;&nbsp; Grow.</h2>
+    <img th:src="@{/assets/login_img.png}" alt="Illustration" />
+  </section>
 </div>
+
 </body>
 </html>

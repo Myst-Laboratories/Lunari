@@ -2,17 +2,73 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <title>Lunari Home</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lunari Dashboard</title>
+    <link rel="stylesheet" th:href="@{/css/home.css}">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div>
-        <h1>Welcome to Lunari Home</h1>
-        <div>
-            <h2 th:text="${user}"></h2>
-        </div>
-        <div>
-            <span style="color: red;"><a th:href="@{/logout}">Logout</a></span>
+<div class="sidebar">
+    <h1><img th:src="@{/assets/logo.png}" src="" alt="Logo"> Lunari</h1>
+    <input type="text" placeholder="Search...">
+    <ul class="menu">
+        <li>Dashboard</li>
+        <li>Budget</li>
+        <li>Transactions</li>
+        <li>History</li>
+        <li>Notifications</li>
+        <li>Settings</li>
+    </ul>
+</div>
+<div class="main">
+    <div class="card" style="grid-column: span 1;">
+        <h3>My Balance</h3>
+        <h2>$0.00</h2>
+    </div>
+    <div class="card" style="grid-column: span 1;">
+        <h3>My Income</h3>
+        <h2>$0.00</h2>
+        <p>Yearly: $0.00<br>Monthly: $0.00<br>Hourly: $0.00</p>
+    </div>
+    <div class="card" style="grid-column: span 1;">
+        <h3>My Expenses</h3>
+        <h2>$0.00</h2>
+        <p>Monthly: $0.00<br>Daily: $0.00</p>
+    </div>
+    <div class="card half-width">
+        <h3>Financial Flow</h3>
+        <div class="bar-chart">
+
         </div>
     </div>
+    <div class="card half-width">
+        <h3>Remaining Monthly</h3>
+        <h2>$0.00 <span style="font-size: 1rem; color: gray;">0%</span></h2>
+    </div>
+    <div class="card full-width">
+        <div class="transaction-header">
+            <h3>Transaction History</h3>
+            <span>All Transactions ▼</span>
+        </div>
+        <table>
+            <thead>
+            <tr>
+                <th>Date</th>
+                <th>Type</th>
+                <th>Amount</th>
+                <th>Description</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>Mar 21, 2025 - 11:00 AM</td>
+                <td>Grocery</td>
+                <td>$20.00</td>
+                <td>Getting Snacks</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
 </body>
 </html>
