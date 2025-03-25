@@ -21,30 +21,65 @@
     </ul>
 </div>
 <div class="main">
-    <div class="card" style="grid-column: span 1;">
-        <h3>My Balance</h3>
-        <h2>$0.00</h2>
+    <div class="card-group">
+        <div class="card" style="grid-column: span 1;">
+            <h3>My Balance</h3>
+            <h2>$0.00</h2>
+        </div>
+        <div class="card income-card" style="grid-column: span 1;">
+            <h3>My Income</h3>
+            <p class="subheading">Total Income</p>
+            <h2>$0.00</h2>
+            <div class="income-breakdown">
+                <div>
+                    <p class="label">Annually</p>
+                    <p><strong>$0.00</strong></p>
+                </div>
+                <div>
+                    <p class="label">Monthly</p>
+                    <p><strong>$0.00</strong></p>
+                </div>
+                <div>
+                    <p class="label">Hourly</p>
+                    <p><strong>$0.00</strong></p>
+                </div>
+            </div>
+        </div>
+        <div class="card expenses-card" style="grid-column: span 1;">
+            <h3>My Expenses</h3>
+            <p class="subheading">Total Expenses</p>
+            <h2>$0.00</h2>
+            <div class="expenses-breakdown">
+                <div>
+                    <p class="label">Monthly</p>
+                    <p><strong>$0.00</strong></p>
+                </div>
+                <div>
+                    <p class="label">Daily</p>
+                    <p><strong>$0.00</strong></p>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="card" style="grid-column: span 1;">
-        <h3>My Income</h3>
-        <h2>$0.00</h2>
-        <p>Yearly: $0.00<br>Monthly: $0.00<br>Hourly: $0.00</p>
-    </div>
-    <div class="card" style="grid-column: span 1;">
-        <h3>My Expenses</h3>
-        <h2>$0.00</h2>
-        <p>Monthly: $0.00<br>Daily: $0.00</p>
-    </div>
-    <div class="card half-width">
+
+    <div class="card two-thirds-width">
         <h3>Financial Flow</h3>
         <div class="bar-chart">
 
         </div>
     </div>
-    <div class="card half-width">
+    <div class="card remaining-card">
         <h3>Remaining Monthly</h3>
-        <h2>$0.00 <span style="font-size: 1rem; color: gray;">0%</span></h2>
+        <div class="remaining-labels">
+            <p class="label">Total Remaining</p>
+            <p class="label">Percentage Remaining</p>
+        </div>
+        <div class="remaining-values">
+            <h2>$0.00</h2>
+            <h2>0%</h2>
+        </div>
     </div>
+
     <div class="card full-width">
         <div class="transaction-header">
             <h3>Transaction History</h3>

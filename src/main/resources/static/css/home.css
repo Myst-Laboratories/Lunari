@@ -63,6 +63,13 @@ body {
     box-shadow: 0 1px 4px rgba(0,0,0,0.1);
 }
 
+.card-group {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    grid-column: span 4;
+}
+
 .card h3 {
     font-size: 0.95rem;
     color: #6b7280;
@@ -74,19 +81,31 @@ body {
 .full-width {
     grid-column: span 4;
 }
+
+.two-thirds-width {
+    grid-column: span 3;
+}
+
 .half-width {
     grid-column: span 2;
 }
-.bar-chart {
+
+.card.two-thirds-width {
     display: flex;
-    align-items: flex-end;
-    height: 150px;
+    flex-direction: column;
+}
+
+.bar-chart {
+    flex-grow: 1;
+    height: auto;
+    min-height: 250px;
     background: linear-gradient(to right, #a7f3d0, #6ee7b7);
     border-radius: 10px;
     padding: 10px;
-    gap: 10px;
-    margin-top: 15px;
+    margin-top: 10px;
 }
+
+
 .bar {
     width: 20px;
     background-color: #059669;
@@ -123,12 +142,61 @@ table td {
     color: #374151;
 }
 
-.card:nth-child(1),
-.card:nth-child(2),
-.card:nth-child(3) {
-    margin-right: 20px;
+.income-card .subheading {
+    font-size: 0.85rem;
+    color: #6b7280;
+    margin-top: 10px;
+    margin-bottom: 5px;
 }
 
-.card:nth-child(3) {
-    margin-right: 0;
+.income-breakdown {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+}
+
+.income-breakdown .label {
+    font-size: 0.75rem;
+    color: #6b7280;
+    margin-bottom: 2px;
+}
+
+.expenses-card .subheading {
+    font-size: 0.85rem;
+    color: #6b7280;
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+.expenses-breakdown {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+    max-width: 300px;
+}
+
+.expenses-breakdown .label {
+    font-size: 0.75rem;
+    color: #6b7280;
+    margin-bottom: 2px;
+}
+
+.remaining-card .label {
+    font-size: 0.85rem;
+    color: #6b7280;
+}
+
+.remaining-labels {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    padding-right: 10px;
+}
+
+.remaining-values {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 5px;
+    padding-right: 10px;
 }
