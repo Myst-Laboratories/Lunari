@@ -1,0 +1,36 @@
+//https://dbdiagram.io/d/Lunari-67e2097675d75cc8445110dc
+
+Table user {
+  u_id integer pk
+  full_name varchar(255)
+  email varchar(100) unique
+  password_hash varchar(255)
+  created_at datetime
+}
+
+Table categories {
+  c_id integer pk
+  u_id integer [ref: > user.u_id]
+  name varchar(100)
+  type enum('income','expense')
+}
+
+Table budgets {
+  b_id integer pk
+  c_id integer [ref: > categories.c_id]
+  amount decimal(10,2)
+  period enum('monthly', 'yearly')
+  start_date date
+  end_date date
+  user_id integer [ref: > user.u_id]
+}
+
+Table tranactions {
+  t_id integer pk
+  u_id integer [ref: > user.u_id]
+  c_id integer [ref: > categories.c_id]
+  amount decimal(10,2)
+  type enum('income', 'expense')
+  description text
+  transaction_date datetime
+}
