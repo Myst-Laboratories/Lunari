@@ -8,18 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
-<div class="sidebar">
-    <h1><img th:src="@{/assets/logo.png}" src="" alt="Logo"> Lunari</h1>
-    <input type="text" placeholder="Search...">
-    <ul class="menu">
-        <li>Dashboard</li>
-        <li>Budget</li>
-        <li>Transactions</li>
-        <li>History</li>
-        <li>Notifications</li>
-        <li>Settings</li>
-    </ul>
-</div>
+<div th:replace="~{fragments/sidebar}"></div>
 <div class="main">
     <div class="card-group">
         <div class="card" style="grid-column: span 1;">

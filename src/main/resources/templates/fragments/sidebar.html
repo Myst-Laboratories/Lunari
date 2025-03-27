@@ -1,0 +1,14 @@
+<div class="sidebar">
+    <h1><img th:src="@{/assets/logo.png}" src="" alt="Logo"> Lunari</h1>
+    <label>
+        <input type="text" placeholder="Search...">
+    </label>
+    <ul class="menu">
+        <li th:class="${page == 'dashboard' ? 'selected' : ''}" onclick="window.location.href='/home'">Dashboard</li>
+        <li th:class="${page == 'budget' ? 'selected' : ''}" onclick="window.location.href='/budget'">Budget</li>
+        <li th:class="${page == 'transactions' ? 'selected' : ''}" onclick="window.location.href='/transactions'">Transactions</li>
+        <li th:class="${page == 'history' ? 'selected' : ''}" onclick="window.location.href='/history'">History</li>
+        <li th:class="${page == 'notifications' ? 'selected' : ''}" onclick="window.location.href='/notifications'">Notifications</li>
+        <li th:class="${page == 'settings' ? 'selected' : ''}" onclick="window.location.href='/settings'">Settings</li>
+    </ul>
+</div>

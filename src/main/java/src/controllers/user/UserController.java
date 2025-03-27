@@ -1,5 +1,6 @@
 package src.controllers.user;
 
+import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
@@ -40,7 +41,7 @@ public class UserController {
     }
 
     @PostMapping("/login")
-    public String loginPost(@Valid @ModelAttribute("user") UserDto user, BindingResult result, Model model) {
+    public String loginPost(@Valid @ModelAttribute("user") UserDto user, BindingResult result, HttpSession session, Model model) {
         if (result.hasErrors()) {
             model.addAttribute("loginError", true);
             return "login";
@@ -51,15 +52,9 @@ public class UserController {
             return "login";
         }
         var foundUser = this.userService.getUserByUName(user.getUName());
-        model.addAttribute("user", foundUser);
-        return "home";
-    }
-
-    @GetMapping("/home")
-    public String home(Model model, Principal principal) {
-        var user = userService.getUserByUName(principal.getName());
-        model.addAttribute("user", user);
-        return "home";
+        session.setAttribute("user", foundUser);
+        model.addAttribute("page", "dashboard");
+        return "redirect:/home";
     }
 
     @GetMapping("/register")
