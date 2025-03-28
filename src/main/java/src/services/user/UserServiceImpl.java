@@ -21,9 +21,9 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User saveUser(UserDto userDto) {
+    public void saveUser(UserDto userDto) {
         var user = new User(userDto.getUName(), this.passwordEncoder.encode(userDto.getUPassword()), userDto.getUEmail());
-        return this.userRepository.save(user);
+        this.userRepository.save(user);
     }
 
     @Override

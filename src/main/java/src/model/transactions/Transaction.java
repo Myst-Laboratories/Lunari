@@ -26,6 +26,7 @@ public class Transaction {
     private Double amount;
 
     @Enumerated(EnumType.STRING)
+    @Column(nullable = false, name="TYPE")
     private TransactionsEnum.Transaction type;
 
     @Column(nullable = true)

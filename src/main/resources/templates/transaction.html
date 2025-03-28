@@ -7,109 +7,118 @@
     <link rel="stylesheet" th:href="@{/css/transaction.css}">
 </head>
 <body>
-<div class="container">
-    <div th:replace="~{fragments/sidebar}"></div>
+<div th:replace="~{fragments/sidebar}"></div>
     <div class="main">
-        <!-- Add Transaction Form Card -->
-        <div class="card half-width">
-            <h3>Add Transaction</h3>
-            <form action="#" th:action="@{/transactions}" method="post" th:object="${transaction}">
-                <div class="form-group">
-                    <label for="recurring">Recurring</label>
-                    <select id="recurring" name="recurring" onchange="toggleRecurringFields()">
-                        <option value="no">No</option>
-                        <option value="yes">Yes</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="type">Type</label>
-                    <select id="type" name="type">
-                        <option value="income">Income</option>
-                        <option value="expense">Expense</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="category">Category</label>
-                    <select id="category" name="category">
-                        <option value="grocery">Grocery</option>
-                        <option value="rent">Rent</option>
-                        <option value="salary">Salary</option>
-                        <option value="entertainment">Entertainment</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="date">Date</label>
-                    <input type="date" id="date" name="date">
-                </div>
-                <div class="form-group">
-                    <label for="amount">Amount</label>
-                    <input type="number" id="amount" name="amount" placeholder="Value" step="0.01">
-                </div>
-                <div class="form-group">
-                    <label for="currency">Currency</label>
-                    <select id="currency" name="currency">
-                        <option value="usd">$ USD</option>
-                        <option value="eur">€ EUR</option>
-                        <option value="gbp">£ GBP</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="description">Description</label>
-                    <textarea id="description" name="description" placeholder="Value"></textarea>
-                </div>
-                <div id="recurring-fields" style="display: none;">
+        <div class="top-cards">
+            <div class="card form-card half-width">
+                <h3>Add Transaction</h3>
+                <form action="#" th:action="@{/transactions}" method="post" th:object="${transaction}">
                     <div class="form-group">
-                        <label for="frequency">Frequency</label>
-                        <select id="frequency" name="frequency">
-                            <option value="daily">Daily</option>
-                            <option value="weekly">Weekly</option>
-                            <option value="monthly">Monthly</option>
-                            <option value="yearly">Yearly</option>
+                        <label for="recurring">Recurring</label>
+                        <select id="recurring" name="recurring" onchange="toggleRecurringFields()">
+                            <option value="no">No</option>
+                            <option value="yes">Yes</option>
                         </select>
                     </div>
                     <div class="form-group">
-                        <label for="next-transaction-date">Next Transaction Date</label>
-                        <input type="date" id="next-transaction-date" name="next-transaction-date">
+                        <label for="type">Type</label>
+                        <select id="type" name="type">
+                            <option value="income">Income</option>
+                            <option value="expense">Expense</option>
+                        </select>
                     </div>
+                    <div class="form-group">
+                        <label for="category">Category</label>
+                        <select id="category" name="category">
+                            <option value="grocery">Grocery</option>
+                            <option value="rent">Rent</option>
+                            <option value="salary">Salary</option>
+                            <option value="entertainment">Entertainment</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="date">Date</label>
+                        <input type="date" id="date" name="date">
+                    </div>
+                    <div class="form-group">
+                        <label for="amount">Amount</label>
+                        <input type="number" id="amount" name="amount" placeholder="Value" step="0.01">
+                    </div>
+                    <div class="form-group">
+                        <label for="currency">Currency</label>
+                        <select id="currency" name="currency">
+                            <option value="usd">$ USD</option>
+                            <option value="eur">€ EUR</option>
+                            <option value="gbp">£ GBP</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="description">Description</label>
+                        <textarea id="description" name="description" placeholder="Value"></textarea>
+                    </div>
+                    <div id="recurring-fields" style="display: none;">
+                        <div class="form-group">
+                            <label for="frequency">Frequency</label>
+                            <select id="frequency" name="frequency">
+                                <option value="daily">Daily</option>
+                                <option value="weekly">Weekly</option>
+                                <option value="monthly">Monthly</option>
+                                <option value="yearly">Yearly</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="next-transaction-date">Next Transaction Date</label>
+                            <input type="date" id="next-transaction-date" name="next-transaction-date">
+                        </div>
+                    </div>
+                    <button type="submit">Submit Transaction</button>
+                </form>
+            </div>
+            <div class="card total-balance-card half-width">
+                <div class="card-header">
+                    <h3>Total Balance</h3>
+                    <label>
+                        <select class="view-select">
+                            <option value="monthly">Monthly</option>
+                            <option value="quarterly">Quarterly</option>
+                            <option value="yearly">Yearly</option>
+                        </select>
+                    </label>
                 </div>
-                <button type="submit">Submit Transaction</button>
-            </form>
-        </div>
-
-        <!-- Total Balance Card -->
-        <div class="card half-width">
-            <h3>Total Balance</h3>
-            <div class="balance-summary">
-                <p>Total Income: $0.00</p>
-                <p>Total Expenses: $0.00</p>
-                <p><strong>Net Balance: $0.00</strong></p>
+                <div class="balance-summary">
+                    <p><span class="label">Total Income:</span> <span class="value">$0.00</span></p>
+                    <p><span class="label">Total Expenses:</span> <span class="value">$0.00</span></p>
+                    <p><span class="label">Net Balance:</span> <span class="value">$0.00</span></p>
+                </div>
+                <div class="balance-chart">
+                    <img src="" alt="Balance chart" />
+                </div>
             </div>
         </div>
-
-        <!-- Transaction History Card -->
-        <div class="card full-width">
+        <div class="card full-width transaction-history-card">
             <h3>Transaction History</h3>
-            <table>
-                <thead>
-                <tr>
-                    <th>Date</th>
-                    <th>Category</th>
-                    <th>Amount</th>
-                    <th>Description</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td>Mar 21, 2025 - 11:00 AM</td>
-                    <td>Grocery</td>
-                    <td>$20.00</td>
-                    <td>Getting Snacks</td>
-                </tr>
-                </tbody>
-            </table>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Category</th>
+                        <th>Amount</th>
+                        <th>Description</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>Mar 21, 2025 - 11:00 AM</td>
+                        <td>Grocery</td>
+                        <td>$20.00</td>
+                        <td>Getting Snacks</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
-</div>
 
 <script th:src="@{/js/transaction.js}"></script>
 </body>

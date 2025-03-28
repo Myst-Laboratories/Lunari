@@ -42,4 +42,12 @@ public class Category {
     public void setUser(User user) {
         this.user = user;
     }
+
+    public CategoryEnum.Category getName() {
+        return this.name;
+    }
+
+    public void setName(CategoryEnum.Category name) {
+        this.name = name;
+    }
 }

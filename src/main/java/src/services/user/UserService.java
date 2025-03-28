@@ -9,7 +9,7 @@ public interface UserService {
     public User getUserByUName(String name);
     public User getUserByEmail(String email);
 
-    public User saveUser(UserDto user);
+    public void saveUser(UserDto user);
 
     public boolean authenticate(String username, String password);
 }
